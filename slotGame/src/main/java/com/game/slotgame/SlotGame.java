@@ -1,16 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.game.slotgame;
 
-/**
- *
- * @author LENOVO
- */
+import java.util.Scanner;
+
+
 public class SlotGame {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Scanner input = new Scanner(System.in);
+        System.out.println("Write your total playing Ammount");
+        
+        double mainwallet = input.nextDouble();
+        
+        System.out.println("Input your bet ammount");
+        double betAmmount = input.nextDouble();
+        
+        System.out.println("Your Total Ammount: "+mainwallet);
+        
+        System.out.println("Your Bet Ammount: "+betAmmount);
+
     }
 }
