@@ -1,0 +1,47 @@
+package com.game.slot;
+
+import java.util.Random;
+
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
+
+@CrossOrigin(origins = "http://localhost:4200")
+@RestController
+@RequestMapping("/api/game")
+public class SlotController {
+
+	private double userBalance=1000.00;
+	private final double SPIN_COST=10.00;
+	
+	@GetMapping("/spin")
+	public SlotResult spin() {
+		if(userBalance<SPIN_COST) {
+			return new SlotResult(new int[] {0,0,0}, 0, userBalance, "Insufficient Fund!");
+		}
+		
+		
+		userBalance -=SPIN_COST;
+		
+		int[] reels= new int[3];
+		Random random= new Random();
+		for(int i=0;i<3;i++) {
+			reels[i]=random.nextInt(10);
+		}
+		
+		double winAmmount=0;
+		String message="Try Again!";
+		
+		if(reels[0]==reels[1] && reels[1]==reels[2]) {
+			winAmmount=SPIN_COST*10;
+			userBalance += winAmmount;
+			message="JACKPOT! You Won: "+ winAmmount;
+		}else if(reels[0]==reels[1]||reels[1]==reels[2]||reels[2]==reels[0]) {
+			winAmmount=SPIN_COST*2;
+			userBalance += winAmmount;
+			message="CONGRATULATION! You Won: "+ winAmmount;
+		}
+		
+		return new SlotResult(reels, winAmmount, userBalance, message);
+	}
+	
+}
