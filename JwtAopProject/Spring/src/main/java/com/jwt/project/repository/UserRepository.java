@@ -8,4 +8,5 @@ import com.jwt.project.entity.UserAccount;
 @Repository
 public interface UserRepository extends JpaRepository<UserAccount, Long>{
 
+	UserAccount findByUsername(String username);
 }
