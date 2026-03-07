@@ -4,21 +4,12 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": [
-      "node"
-    ],
-    "paths": {
-      "@angular/fire": ["./node_modules/@angular/fire"],
-      "@angular/fire/*": ["./node_modules/@angular/fire/*"]
-    }
+    "types": []
   },
   "files": [
     "src/main.ts"
   ],
   "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "src/**/*.spec.ts"
+    "src/**/*.d.ts"
   ]
 }

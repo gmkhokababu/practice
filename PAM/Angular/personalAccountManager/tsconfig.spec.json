@@ -3,22 +3,13 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "./out-tsc/app",
+    "outDir": "./out-tsc/spec",
     "types": [
-      "node"
-    ],
-    "paths": {
-      "@angular/fire": ["./node_modules/@angular/fire"],
-      "@angular/fire/*": ["./node_modules/@angular/fire/*"]
-    }
+      "jasmine"
+    ]
   },
-  "files": [
-    "src/main.ts"
-  ],
   "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "src/**/*.spec.ts"
+    "src/**/*.spec.ts",
+    "src/**/*.d.ts"
   ]
 }
